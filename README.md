@@ -12,7 +12,7 @@ Before you begin, ensure you have the following installed on your machine:
 ### Getting Started
 1. Build the Spring Boot Application
 ```bash
-mvn clean package -DskipTests
+./mvnw clean package -DskipTests
 ```
 
 2. Start the Docker Containers
