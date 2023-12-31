@@ -46,5 +46,5 @@ To stop the application and remove the containers, run:
 docker-compose down
 ```
 
-Contributing
+### Contributing
 If you find issues or have suggestions for improvements, please feel free to open an issue or create a pull request.
