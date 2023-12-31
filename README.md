@@ -14,11 +14,22 @@ Before you begin, ensure you have the following installed on your machine:
 ```bash
 ./mvnw clean package -DskipTests
 ```
-
-2. Start the Docker Containers
+2. Pull Docker Container Images
 ```bash
-docker compose up -d cyanskyyy/java_db:15.5-bullseye
-docker compose up -d cyanskyyy/java_app:1.0.0
+docker pull cyanskyyy/java_db:15.5-bullseye
+docker pull cyanskyyy/java_app:1.0.0
+```
+
+3. Rebuild images in the docker-compose.yml file
+This file contains all the necessary configurations for all the services that make up the application.
+```bash
+docker-compose build
+```
+
+4. Start the Docker Containers
+```bash
+docker compose up -d java_db
+docker compose up -d java_app
 ```
 This command will pull the necessary images and start the PostgreSQL and Spring Boot containers.
 
