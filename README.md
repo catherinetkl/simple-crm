@@ -6,7 +6,7 @@ This is a simple CRM (Customer Relationship Management) application built with S
 ### Prerequisites
 Before you begin, ensure you have the following installed on your machine:
 
-**Docker: Install Docker**
+**Docker: Install Docker** \
 **Maven: Install Maven**
 
 ### Getting Started
