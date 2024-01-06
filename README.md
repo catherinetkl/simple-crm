@@ -10,10 +10,15 @@ Before you begin, ensure you have the following installed on your machine:
 **Maven: Install Maven**
 
 ### Getting Started
+
 1. Build the Spring Boot Application
+
 ```bash
 ./mvnw clean package -DskipTests
+
+mvnw clean package -DskipTests
 ```
+
 2. Pull Docker Container Images
 ```bash
 docker pull cyanskyyy/java_db:15.5-bullseye
@@ -44,6 +49,33 @@ To stop the application and remove the containers, run:
 
 ```bash
 docker-compose down
+```
+
+## Backend
+
+There are six APIs implemented:
+- POST http://localhost:8080/customers
+- GET http://localhost:8008/customers
+
+### POST Request to Create a new customer
+
+The payload to create a new customer is:
+
+```http
+POST http://localhost:8080/customers
+```
+
+```json
+  {
+    "id": 5,
+    "firstName": "Tony",
+    "lastName": "Stark",
+    "email": "tonystark@marvel.com",
+    "contactNo": "2129704133",
+    "jobTitle": "CEO",
+    "yearOfBirth": 1970,
+    "interactions": null
+  }
 ```
 
 ## Testing customer endpoints
@@ -127,24 +159,7 @@ GET http://localhost:8080/customers
 ]
 ```
 
-### POST Request to Create a new customer
-
-```http
-POST http://localhost:8080/customers
-```
-
-```json
-  {
-    "id": 5,
-    "firstName": "Tony",
-    "lastName": "Stark",
-    "email": "tonystark@marvel.com",
-    "contactNo": "2129704133",
-    "jobTitle": "CEO",
-    "yearOfBirth": 1970,
-    "interactions": null
-  }
-```
+You can view the data fetched from frontend after creating at least one employee.
 
 ### GET interactions list
 
@@ -332,5 +347,7 @@ GET http://localhost:8080/customers
   }
 ]
 ```
+
 ### Contributing
+
 If you find issues or have suggestions for improvements, please feel free to open an issue or create a pull request.

@@ -1,0 +1,30 @@
+version: 2.1
+
+orbs:
+  docker: circleci/docker@2.4.0
+  heroku: circleci/heroku@2.0.0
+  snyk: snyk/snyk@2.0.2
+
+jobs:
+  deploy:
+    docker:
+      - image: cimg/openjdk:17.0.9
+    steps:
+      - setup_remote_docker
+      - checkout
+      - heroku/install
+      - run:
+          name: Heroku Container Push
+          command: |
+              heroku container:login
+              heroku container:push web -a chinhow-su-devops
+              heroku container:release web -a chinhow-su-devops
+      - snyk/scan:
+          docker-image-name: $DOCKER_LOGIN/$IMAGE_NAME:latest
+          severity-threshold: high
+
+
+workflows:
+  simple_workflow:
+    jobs:
+      - deploy
